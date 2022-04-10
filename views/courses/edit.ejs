@@ -1,0 +1,63 @@
+<% layout('/layouts/boilerplate.ejs') %>
+    <div class="row">
+
+        <div class="d-flex justify-content-center">
+            <button type="button" class="me-auto btn btn-dark" onclick="history.back()">Back</button>
+        </div>
+        <div class="col-6 offset-3">
+            <form action="/courses/editCourse/<%= p._id %>?_method=PUT" method="post" novalidate
+                class="needs-validation">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Course title</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Title" required
+                        value="<%= p.title %>">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        The course needs a title
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" name="description" id="description"
+                        placeholder="Description" required><%= p.description %></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        It would be nice if this course has a description.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="startdate">Start date</label>
+                    <input class="form-control" type="text" name="startdate" id="startdate" placeholder="Start Date"
+                        value="<%= p.startdate %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        When does it start?
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="enddate">End date</label>
+                    <input class="form-control" type="text" name="enddate" id="enddate" placeholder="End Date"
+                        value="<%= p.enddate %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        When does it end?
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input class="btn btn-success" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>

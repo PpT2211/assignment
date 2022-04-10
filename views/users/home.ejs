@@ -1,0 +1,27 @@
+<% layout('/layouts/boilerplate.ejs') %>
+
+    <% if(data.length!=0){ %>
+        <% for(let p of data ){ %>
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= p.name %>
+                            </h5>
+                            <p class="card-text">
+                                <%= p.contact %>
+                            </p>
+                            <p class="card-text"><small class="text-muted">
+                                    <%= p.email %>
+                                </small></p>
+                            <a href="/users/get/<%= p._id %>" class="btn btn-primary">View User</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+                <% }else{ %>
+                    <h4>No users :(</h4>
+                    <% } %>

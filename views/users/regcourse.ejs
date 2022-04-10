@@ -1,0 +1,30 @@
+<% layout('/layouts/boilerplate.ejs') %>
+
+
+
+    <% layout('/layouts/boilerplate.ejs') %>
+        <div class="row">
+            <div class="d-flex justify-content-center">
+                <button type="button" class="me-auto btn btn-dark" onclick="history.back()">Back</button>
+            </div>
+            <div class="col-3 offset-2">
+                <h1>
+                    <%= p.name %>
+                </h1>
+            </div>
+            <div class="col-6 offset-3">
+
+                <form action="/users/addCourse/<%= p._id %>" method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="test">Enter course(s) (For multiple courses, seperate them with a
+                            space)</label>
+                        <input class="form-control" type="text" name="test" id="test" placeholder="Username">
+                    </div>
+
+                    <div class="mb-3">
+                        <input class="btn btn-success" type="submit" value="Submit">
+                    </div>
+                </form>
+
+            </div>
+        </div>

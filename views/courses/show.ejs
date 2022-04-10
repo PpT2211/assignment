@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate.ejs') %>
+    <button type="button" class="btn btn-dark" onclick="history.back()">Back</button>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <u>
+                            <%= p.title %>
+                        </u>
+                    </h5>
+                    <p class="card-text">Description: <%= p.description %>
+                    </p>
+                    Users Registered:
+                    <ul>
+                        <% if(p.usersreg.length!=0){ %>
+                            <% for(let u of p.usersreg){ %>
+                                <li>
+                                    <%= u %>
+                                </li>
+                                <% } %>
+                                    <% }else{ %>
+                                        No-one registered for this course :(
+                                        <% } %>
+                    </ul>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><small class="text-muted">
+                            <%= p.startdate %> to <%= p.enddate %>
+                        </small>
+                    </li>
+                </ul>
+                <div class="card-body d-flex justify-content-evenly">
+                    <a class="btn btn-secondary" href="/courses/editCourse/<%= p._id %>">Edit Course</a>
+                    <a class="btn btn-primary" href="/courses/addUsers/<%= p._id %>">Add users</a>
+                </div>
+            </div>
+        </div>
+    </div>

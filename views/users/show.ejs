@@ -1,0 +1,41 @@
+<% layout('/layouts/boilerplate.ejs') %>
+
+
+    <button type="button" class="btn btn-dark" onclick="history.back()">Back</button>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= p.name %>
+                    </h5>
+                    Courses registered:
+                    <ul>
+                        <% if(p.course.length!=0){ %>
+                            <% for(let c of p.course){ %>
+                                <li>
+                                    <%= c %>
+                                </li>
+                                <% } %>
+                                    <% }else{ %>
+                                        This person didn't register to for any course :(
+                                        <% } %>
+                    </ul>
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Email: <%= p.email %>
+                    </li>
+                    <li class="list-group-item">Contact: <%= p.contact %>
+                    </li>
+                </ul>
+                <div class="card-body d-flex justify-content-evenly">
+                    <a class="btn btn-secondary" href="/users/editUser/<%= p._id %>">Edit User</a>
+                    <a class="btn btn-primary" href="/users/addCourse/<%= p._id %>">Add Course</a>
+                </div>
+            </div>
+        </div>
+    </div>
