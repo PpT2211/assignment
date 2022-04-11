@@ -90,7 +90,7 @@ app.post("/users/addCourse/:id", async (req, res) => {
     user.course = Array.from(coursesSet)
 
     for (let c of courses) {
-        var data = await Courses.findOne({ name: c })
+        var data = await Courses.findOne({ title: `${c}` })
         data.usersreg.push(user.name)
         var userSet = new Set(data.usersreg);
         data.usersreg = Array.from(userSet)
